@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+.venv-1/
+.venv-2/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Sensitive project data
+data/
+faiss_index/
+chroma_db/
+chunks.json
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+frontend/.DS_Store
+
+# Evaluation output
+evaluation_results.json
+evaluation_results.csv

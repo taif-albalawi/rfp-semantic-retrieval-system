@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+streamlit
+langchain
+langchain-openai
+langchain-community
+langchain-huggingface
+faiss-cpu
+sentence-transformers
+openai
+pypdf
+python-docx
+docx2txt
+pandas
+openpyxl
+unstructured
+requests
