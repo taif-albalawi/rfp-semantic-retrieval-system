@@ -5,7 +5,7 @@ import requests
 # Page Config
 # =========================
 st.set_page_config(
-    page_title="RFP Intelligence System",
+    page_title="RFP Semantic Retrieval System",
     page_icon="🤖",
     layout="centered"
 )

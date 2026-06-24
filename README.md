@@ -1,65 +1,86 @@
-# RFP Semantic Retrieval System
+# 🤖 RFP Semantic Retrieval System
 
-An AI-powered Retrieval-Augmented Generation (RAG) system for semantic search and intelligent question answering over Request for Proposal (RFP) documents.
+An AI-powered **Retrieval-Augmented Generation (RAG)** system that enables semantic search and intelligent question answering over Request for Proposal (RFP) documents.
 
----
-
-## Overview
-
-RFP Semantic Retrieval System helps users quickly retrieve relevant information from large collections of RFP documents using semantic search and Large Language Models (LLMs).
-
-The system supports document ingestion, semantic retrieval, question answering with source references, and a basic Bid / No-Bid recommendation module.
+The system retrieves relevant document sections using **FAISS**, generates grounded responses with **GPT-4o-mini**, and provides a basic **Bid / No-Bid** recommendation.
 
 ---
 
-## Features
+# 📷 Demo
 
-- Semantic search using FAISS
-- Retrieval-Augmented Generation (RAG)
-- Question Answering over RFP documents
-- Bid / No-Bid recommendation
-- Source document retrieval
-- FastAPI backend
-- Streamlit frontend
-- Evaluation pipeline
+### Question Answering
 
----
+![Question Answering](images/qa-demo.png)
 
-## Supported File Types
+### Bid / No-Bid Recommendation
 
-- PDF
-- DOCX
-- XLSX
-- PPTX
+![Bid No-Bid](images/bid-demo.png)
 
 ---
 
-## Tech Stack
+# ✨ Features
 
-- Python
-- LangChain
-- OpenAI GPT-4o-mini
-- HuggingFace Embeddings
-- FAISS
-- FastAPI
-- Streamlit
-- Pandas
+- 🔍 Semantic search using FAISS
+- 🤖 Retrieval-Augmented Generation (RAG)
+- 💬 Question Answering with GPT-4o-mini
+- 📚 Source document citation
+- ⚖️ Bid / No-Bid recommendation
+- 📄 Support for PDF, DOCX, XLSX, and PPTX documents
+- 🚀 FastAPI backend
+- 💻 Streamlit frontend
 
 ---
 
-## Project Structure
+# 🏗️ System Workflow
+
+```
+RFP Documents
+      │
+      ▼
+Document Loading
+      │
+      ▼
+Text Chunking
+      │
+      ▼
+Embeddings
+      │
+      ▼
+FAISS Vector Database
+      │
+      ▼
+Semantic Retrieval
+      │
+      ▼
+GPT-4o-mini
+      │
+      ▼
+Answer + Sources
+```
+
+---
+
+# 🛠️ Tech Stack
+
+- **Language:** Python
+- **Framework:** LangChain
+- **LLM:** GPT-4o-mini
+- **Embeddings:** BAAI/bge-small-en-v1.5
+- **Vector Database:** FAISS
+- **Backend:** FastAPI
+- **Frontend:** Streamlit
+
+---
+
+# 📂 Project Structure
 
 ```text
-ai-rag-project/
-│
+.
 ├── frontend/
 │   └── app.py
-│
+├── images/
 ├── bid_decision.py
-├── chunking.py
-├── embedder.py
 ├── evaluate.py
-├── ingestion.py
 ├── ingestion_faiss.py
 ├── llm.py
 ├── main.py
@@ -68,14 +89,13 @@ ai-rag-project/
 ├── requirements.txt
 ├── retriever.py
 ├── test_queries.py
-├── vectorstore.py
 ├── README.md
 └── .gitignore
 ```
 
 ---
 
-## Installation
+# 🚀 Installation
 
 Clone the repository:
 
@@ -87,13 +107,6 @@ Create a virtual environment:
 
 ```bash
 python3 -m venv .venv
-```
-
-Activate it:
-
-macOS/Linux
-
-```bash
 source .venv/bin/activate
 ```
 
@@ -103,13 +116,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
----
-
-## Configure API Key
-
-Set your OpenAI API key before running the project.
-
-Example:
+Set your OpenAI API key:
 
 ```bash
 export OPENAI_API_KEY="YOUR_API_KEY"
@@ -117,7 +124,9 @@ export OPENAI_API_KEY="YOUR_API_KEY"
 
 ---
 
-## Build the Vector Database
+# ▶️ Run the Project
+
+### 1. Build the FAISS Index
 
 Place your own RFP documents inside the `data/` folder, then run:
 
@@ -125,29 +134,13 @@ Place your own RFP documents inside the `data/` folder, then run:
 python3 ingestion_faiss.py
 ```
 
-This will create the local FAISS index.
-
-> **Note:** The original RFP dataset is **not included** in this repository because it contains confidential documents.
-
----
-
-## Run the Backend
+### 2. Start the Backend
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Backend:
-
-```
-http://127.0.0.1:8000
-```
-
----
-
-## Run the Frontend
-
-Open another terminal:
+### 3. Launch the Frontend
 
 ```bash
 streamlit run frontend/app.py
@@ -155,37 +148,17 @@ streamlit run frontend/app.py
 
 ---
 
-## API Endpoints
+# 🔒 Data Privacy
 
-### Ask Questions
+The original RFP documents are **not included** in this repository because they contain confidential information.
 
-```
-POST /ask
-```
-
-Returns:
-- Generated answer
-- Source documents
-
-### Bid / No-Bid
-
-```
-POST /bid
-```
-
-Returns:
-- Bid
-- No-Bid
-- Maybe
-
-with reasoning based on the retrieved documents.
+To run the project, use your own RFP documents and generate a new FAISS index.
 
 ---
 
-## Future Improvements
+# 🔮 Future Improvements
 
-- Advanced document filtering
-- Better ranking models
+- Advanced reranking
 - Confidence scoring
 - Authentication
 - Cloud deployment
@@ -193,8 +166,8 @@ with reasoning based on the retrieved documents.
 
 ---
 
-## Authors
+# 👩‍💻 Author
 
-- **Taif Albalawi**
+**Taif Albalawi**
 
-Developed as part of the **Saudi Digital Academy (SDA) AI Engineering Bootcamp**.
+AI Engineering Bootcamp – Saudi Digital Academy (SDA)
